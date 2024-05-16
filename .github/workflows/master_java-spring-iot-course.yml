@@ -1,12 +1,12 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+name: Build and deploy JAR app to Azure Web App
 
-name: Build and deploy JAR app to Azure Web App - java-spring-iot-course
+env:
+  JAVA_VERSION: '17'
+  JAVA_APP: "Lab1.jar"
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
@@ -16,10 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Java version
-        uses: actions/setup-java@v1
+      - name: Set up Java version ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'zulu'
+
 
       - name: Build with Maven
         run: mvn clean install
