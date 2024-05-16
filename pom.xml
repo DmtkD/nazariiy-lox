@@ -10,7 +10,7 @@
         <version>2.7.5</version>
         <relativePath/>
     </parent>
-    <groupId>ua.mtk.iot</groupId>
+    <groupId>ua.nazik.iot</groupId>
     <artifactId>Lab1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Cloud lab work</name>
